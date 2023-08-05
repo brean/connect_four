@@ -1,4 +1,4 @@
-from four_connect import FourConnect
+from connect_four import ConnectFour
 
 
 game_states = [
@@ -55,21 +55,21 @@ game_states = [
 
 
 def test_play_game():
-    fc = FourConnect()
-    assert fc.board == game_states[0]
-    fc.step(1, 3)
-    assert fc.board == game_states[1]
+    cf = ConnectFour()
+    assert cf.board == game_states[0]
+    cf.step(1, 3)
+    assert cf.board == game_states[1]
     # ignore illegal turns (same player again)
-    fc.step(1, 3)
-    assert fc.board == game_states[1]
-    fc.step(2, 3)
-    assert fc.board == game_states[2]
-    fc.step(1, 2)
-    assert fc.board == game_states[3]
-    fc.step(2, 3)
-    assert fc.board == game_states[4]
+    cf.step(1, 3)
+    assert cf.board == game_states[1]
+    cf.step(2, 3)
+    assert cf.board == game_states[2]
+    cf.step(1, 2)
+    assert cf.board == game_states[3]
+    cf.step(2, 3)
+    assert cf.board == game_states[4]
     # ignore out-of-board
-    fc.step(1, 8)
-    assert fc.board == game_states[4]
-    fc.step(1, 6)
-    assert fc.board == game_states[5]
+    cf.step(1, 8)
+    assert cf.board == game_states[4]
+    cf.step(1, 6)
+    assert cf.board == game_states[5]

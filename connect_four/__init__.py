@@ -1,4 +1,4 @@
-class FourConnect:
+class ConnectFour:
     def __init__(self, columns=7, rows=6, starting_player=1, players=None):
         self.starting_player = starting_player
         # we need at least a 4-by-4 map to play

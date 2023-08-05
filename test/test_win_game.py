@@ -1,4 +1,4 @@
-from four_connect import FourConnect
+from connect_four import ConnectFour
 
 
 game_states = {
@@ -72,40 +72,40 @@ draw = [
 
 
 def test_empty_board():
-    fc = FourConnect()
-    assert game_states['empty'] == fc.board
+    cf = ConnectFour()
+    assert game_states['empty'] == cf.board
 
 
 def test_play_board():
-    fc = FourConnect()
-    fc.step(1, 3)
-    fc.step(2, 3)
-    fc.step(1, 4)
-    fc.step(2, 4)
-    fc.step(1, 5)
-    fc.step(2, 5)
-    assert not fc.won()
-    fc.step(1, 6)
-    assert fc.won() == 1
+    cf = ConnectFour()
+    cf.step(1, 3)
+    cf.step(2, 3)
+    cf.step(1, 4)
+    cf.step(2, 4)
+    cf.step(1, 5)
+    cf.step(2, 5)
+    assert not cf.won()
+    cf.step(1, 6)
+    assert cf.won() == 1
 
 
 def test_predefined_boards():
-    fc = FourConnect()
+    cf = ConnectFour()
     for state in game_states:
         print(state)
         if state == 'empty':
             continue
-        fc.board = game_states[state]
-        assert fc.won() == 1
-    fc.board = no_win
-    assert not fc.won()
+        cf.board = game_states[state]
+        assert cf.won() == 1
+    cf.board = no_win
+    assert not cf.won()
 
 
 def test_draw():
-    fc = FourConnect()
-    fc.board = draw
-    assert fc.won() == -1
-    fc.board[0][0] = 0
-    fc.won()
-    print(fc.win_cells)
-    assert not fc.won()
+    cf = ConnectFour()
+    cf.board = draw
+    assert cf.won() == -1
+    cf.board[0][0] = 0
+    cf.won()
+    print(cf.win_cells)
+    assert not cf.won()

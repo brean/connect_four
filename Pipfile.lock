@@ -16,7 +16,7 @@
         ]
     },
     "default": {
-        "four-connect": {
+        "connect-four": {
             "path": ".",
             "version": "==1.0.0"
         }

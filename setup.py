@@ -6,11 +6,11 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="four_connect",
+    name="connect_four",
     description="Four connect logic to use in any other project.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/brean/four_connect",
+    url="https://github.com/brean/connect_four",
     version="1.0.0",
     license="Apache 2.0",
     author="Andreas Bresser",

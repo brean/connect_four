@@ -1,4 +1,4 @@
-from four_connect import FourConnect
+from connect_four import ConnectFour
 
 board = '''+-------+
 |0000000|
@@ -11,6 +11,6 @@ board = '''+-------+
 
 
 def test_print_board():
-    fc = FourConnect()
-    print(fc.print_board())
-    assert fc.print_board() == board
+    cf = ConnectFour()
+    print(cf.print_board())
+    assert cf.print_board() == board
