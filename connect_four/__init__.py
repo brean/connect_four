@@ -1,5 +1,8 @@
 class ConnectFour:
-    def __init__(self, columns=7, rows=6, starting_player=1, players=None):
+    def __init__(
+            self, columns=7, rows=6, starting_player=1, players=None,
+            connected_cells=4):
+        self.connected_cells = max(2, connected_cells)
         self.starting_player = starting_player
         # we need at least a 4-by-4 map to play
         self.columns = max(4, columns)
@@ -42,13 +45,14 @@ class ConnectFour:
         board = self.board
         rows = len(board)
         cols = len(board[0])
+        connected = range(self.connected_cells)
         if self.check_draw():
             return -1
         for player in self.players:
             # check horizontal
             for row in range(rows - 3):
                 for col in range(cols):
-                    cells = [(row + i, col) for i in range(4)]
+                    cells = [(row + i, col) for i in connected]
                     if all([board[x][y] == player for x, y in cells]):
                         self.win_cells = cells
                         return player
@@ -56,7 +60,7 @@ class ConnectFour:
             # check vertical
             for row in range(rows):
                 for col in range(cols - 3):
-                    cells = [(row, col + x) for x in range(4)]
+                    cells = [(row, col + x) for x in connected]
                     if all([board[x][y] == player for x, y in cells]):
                         self.win_cells = cells
                         return player
@@ -64,14 +68,14 @@ class ConnectFour:
             # check diagonal
             for row in range(rows - 3):
                 for col in range(cols - 3):
-                    cells = [(row + x, col + x) for x in range(4)]
+                    cells = [(row + x, col + x) for x in connected]
                     if all([board[x][y] == player for x, y in cells]):
                         self.win_cells = cells
                         return player
 
             for row in range(rows - 3):
                 for col in range(3, cols):
-                    cells = [(row + x, col - x) for x in range(4)]
+                    cells = [(row + x, col - x) for x in connected]
                     if all([board[x][y] == player for x, y in cells]):
                         self.win_cells = cells
                         return player
