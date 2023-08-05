@@ -2,10 +2,14 @@
 Four connect logic to use in any other project.
 
 # Installation
-You can use pip to install:
 
-```bash
-$ pip install connect_four
+~~You can use pypi to install:~~
+
+Download this package and then run pip in the downloaded folder:
+
+```
+cd connect_four
+pip install .
 ```
 
 # Usage
